@@ -4,15 +4,20 @@ let mongoose = require('mongoose'),
     Class = mongoose.model('Class');
 
     exports.list_all_class = function(req, res) {
-     // res.send('Hello Putah!');
-        Class.find({},'ClassName Professor' , function(err, class_) {
+        Class.find({},{'_id':1,'ClassName':1} , function(err, class_) {
           if (err)
             res.send(err);
           res.json(class_);
         });
       };
       
-      
+      exports.list_all_classNames= function(req, res) {
+        Class.find({},{'_id':0,'ClassName':1} , function(err, class_) {
+          if (err)
+            res.send(err);
+          res.json(class_);
+        });
+      }
       
       
       exports.create_a_class = function(req, res) {
@@ -48,7 +53,7 @@ let mongoose = require('mongoose'),
       
       
       exports.delete_a_class = function(req, res) {
-        Class.remove({
+        Class.deleteOne({
           _id: req.params.classId
         }, function(err, class_) {
           if (err)
