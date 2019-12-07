@@ -4,7 +4,8 @@ let mongoose = require('mongoose'),
     Task = mongoose.model('Task');
 
     exports.list_all_task = function(req, res) {
-        Task.find({},{'_id':1,'Description':1} , function(err, task) {
+      let _userId = req.params.userId;
+        Task.find({userId:_userId},{'_id':1,'Description':1} , function(err, task) {
           if (err)
             res.send(err);
           res.json(task);
@@ -12,11 +13,12 @@ let mongoose = require('mongoose'),
       };
           
       exports.create_a_task = function(req, res) {
+        let _userId = req.params.userId;
         let task = req.body.Task;
         let class_ = req.body.ClassName;
         let deadline = req.body.deadline;
         let notes = req.body.notes;
-        var new_task = new Task({Description: task, ClassName: class_, Deadline: deadline, Notes: notes});
+        var new_task = new Task({userId: _userId,Description: task, ClassName: class_, Deadline: deadline, Notes: notes});
         new_task.save(function(err, task) {
           if (err)
             res.send(err);
@@ -70,8 +72,8 @@ let mongoose = require('mongoose'),
       }
 
       exports.get_task_by_class = function(req,res){
-        console.log(req.params.className);
-        Task.find({ClassName: req.params.className},{'_id':1,'Description':1} , function(err, task) {
+        let _userId = req.params.userId;
+        Task.find({userId:_userId, ClassName: req.params.className},{'_id':1,'Description':1} , function(err, task) {
           if (err)
             res.send(err);
           res.json(task);

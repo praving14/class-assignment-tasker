@@ -5,11 +5,11 @@ module.exports = function (app) {
   var taskTracker = require('../controller/TaskController');
   var userTracker = require('../controller/UserController');
   // todoList Routes
-  app.route('/api/class')
+  app.route('/api/:userId/class')
     .get(classTracker.list_all_class)
     .post(classTracker.create_a_class);
 
-  app.route('/api/classNames')
+  app.route('/api/:userId/classNames')
     .get(classTracker.list_all_classNames);
 
   app.route('/api/class/:classId')
@@ -17,7 +17,7 @@ module.exports = function (app) {
     .put(classTracker.update_a_class)
     .delete(classTracker.delete_a_class);
 
-  app.route('/api/task')
+  app.route('/api/:userId/task')
     .get(taskTracker.list_all_task)
     .post(taskTracker.create_a_task);
 
@@ -29,10 +29,10 @@ module.exports = function (app) {
   app.route('/api/completeTask/:taskId')
     .put(taskTracker.complet_a_task);
 
-  app.route('/api/getTaskByDeadline/:deadline')
+  app.route('/api/:userId/getTaskByDeadline/:deadline')
     .get(taskTracker.get_task_by_deadline)
 
-  app.route('/api/getTaskByClass/:className')
+  app.route('/api/:userId/getTaskByClass/:className')
     .get(taskTracker.get_task_by_class)
 
   app.route('/api/user/login')

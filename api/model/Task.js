@@ -28,6 +28,11 @@ let TaskSchema = new Schema({
     Created_date: {
         type: Date,
         default: Date.now
+    },
+    userId:{
+        type:Schema.Types.ObjectId,
+        ref: 'User',
+        required: 'UserId is required',
     }
 },);
 

@@ -16,6 +16,11 @@ let ClassSchema = new Schema({
     Professor:{
         type: String,
         maxlength:[50,'Professor Name cannot be longer than 50 chars'],
+    },
+    userId:{
+        type:Schema.Types.ObjectId,
+        ref: 'User',
+        required: 'UserId is required',
     }
 });
 
