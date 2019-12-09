@@ -15,9 +15,9 @@ exports.user_login = function (req, res) {
                     res.send(err);
                 }
                 if(match){
-                    res.json({ message: 'Successfully logged in', User: user });
+                    res.json({ success: true, message: 'Successfully logged in', User: user });
                 }else{
-                    res.json({ message: 'Invalid Username or Password' });
+                    res.json({ success: false, message: 'Invalid Username or Password' });
                 }
             });
         } else {
@@ -41,9 +41,15 @@ exports.register = function (req, res) {
             })
             user.save(function (err, usr) {
                 if (err) {
-                    res.send(err);
+                    res.send({
+                        success: false,
+                        message: "Something went wrong. Please try again later."
+                    })
                 } else {
-                    res.json(usr);
+                    res.json({
+                        success: true,
+                        message: 'User Successfully Created.'
+                    });
                 }
             });
         }

@@ -7,9 +7,43 @@ let Task = require("./api/model/Task");
 let User = require("./api/model/User");
 bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost:27017/classAssignemntTracker',{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false });
+mongoose.connect('mongodb://localhost:27017/classAssignemntTracker',{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true, useFindAndModify:false });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.get('/welcome', function (req, res) {
+    res.sendFile("web/welcome.html", { root: __dirname });
+});
+app.get('/', function (req, res) {
+    res.sendFile("web/welcome.html", { root: __dirname });
+});
+
+app.get("/welcome.js", function (req, res) {
+    res.sendFile("web/welcome.js", { root: __dirname });
+});
+
+app.get("/login.js", function (req, res) {
+    res.sendFile("web/loginAjax.js", { root: __dirname });
+});
+
+app.get("/newUserAjax.js", function (req, res) {
+    res.sendFile("web/newUserAjax.js", { root: __dirname });
+});
+
+app.get("/create-account", function (req, res) {
+    res.sendFile("web/new_user.html", { root: __dirname });
+});
+
+app.get("/login", function (req, res) {
+    res.sendFile("web/login.html", { root: __dirname});
+});
+
+app.get("/home", function (req, res) {
+    res.sendFile("web/home.html", { root: __dirname});
+});
+app.get("/home.js", function (req, res) {
+    res.sendFile("web/home.js", { root: __dirname });
+});
 
 let routes = require("./api/routes/route");
 routes(app);
