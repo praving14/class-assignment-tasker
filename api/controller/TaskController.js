@@ -73,7 +73,7 @@ let mongoose = require('mongoose'),
 
       exports.get_task_by_class = function(req,res){
         let _userId = req.params.userId;
-        Task.find({userId:_userId, ClassName: req.params.className},{'_id':1,'Description':1} , function(err, task) {
+        Task.find({userId:_userId, ClassName: req.params.className},{'_id':1,'Description':1, 'Deadline':1} , function(err, task) {
           if (err)
             res.send(err);
           res.json(task);

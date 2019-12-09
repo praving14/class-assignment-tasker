@@ -44,6 +44,15 @@ app.get("/home", function (req, res) {
 app.get("/home.js", function (req, res) {
     res.sendFile("web/home.js", { root: __dirname });
 });
+app.get("/home.css", function (req, res) {
+    res.sendFile("web/home.css", { root: __dirname });
+});
+app.get("/tasks", function (req, res) {
+    res.sendFile("web/tasks.html", { root: __dirname });
+});
+app.get("/tasks.js", function (req, res) {
+    res.sendFile("web/tasks.js", { root: __dirname });
+});
 
 let routes = require("./api/routes/route");
 routes(app);
