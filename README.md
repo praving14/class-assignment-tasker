@@ -1,2 +1,2 @@
 # class-assignment-tasker
-Simple node, express, mongo db, moongoose application to create assignment tasker to class for students
+A simple application  using node, express, mongo db, moongoose - to create tasks (assignment/ Project/ Quiz/ Exams) for any class.
