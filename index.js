@@ -12,10 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/welcome', function (req, res) {
-    res.sendFile("web/welcome.html", { root: __dirname });
+    res.sendFile("web/views/welcome.html", { root: __dirname });
 });
 app.get('/', function (req, res) {
-    res.sendFile("web/welcome.html", { root: __dirname });
+    res.sendFile("web/views/welcome.html", { root: __dirname });
 });
 
 app.get("/welcome.js", function (req, res) {
@@ -31,15 +31,15 @@ app.get("/newUserAjax.js", function (req, res) {
 });
 
 app.get("/create-account", function (req, res) {
-    res.sendFile("web/new_user.html", { root: __dirname });
+    res.sendFile("web/views/new_user.html", { root: __dirname });
 });
 
 app.get("/login", function (req, res) {
-    res.sendFile("web/login.html", { root: __dirname});
+    res.sendFile("web/views/login.html", { root: __dirname});
 });
 
 app.get("/home", function (req, res) {
-    res.sendFile("web/home.html", { root: __dirname});
+    res.sendFile("web/views/home.html", { root: __dirname});
 });
 app.get("/home.js", function (req, res) {
     res.sendFile("web/home.js", { root: __dirname });
@@ -48,7 +48,7 @@ app.get("/home.css", function (req, res) {
     res.sendFile("web/home.css", { root: __dirname });
 });
 app.get("/tasks", function (req, res) {
-    res.sendFile("web/tasks.html", { root: __dirname });
+    res.sendFile("web/views/tasks.html", { root: __dirname });
 });
 app.get("/tasks.js", function (req, res) {
     res.sendFile("web/tasks.js", { root: __dirname });
