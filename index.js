@@ -54,6 +54,13 @@ app.get("/tasks.js", function (req, res) {
     res.sendFile("web/tasks.js", { root: __dirname });
 });
 
+
+app.get("/task/Profile", function (req, res) {
+    res.sendFile("web/views/taskProfile.html", { root: __dirname });
+});
+app.get("/taskProfile.js", function (req, res) {
+    res.sendFile("web/taskProfile.js", { root: __dirname });
+});
 let routes = require("./api/routes/route");
 routes(app);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

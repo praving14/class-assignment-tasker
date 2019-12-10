@@ -22,7 +22,7 @@ let mongoose = require('mongoose'),
         new_task.save(function(err, task) {
           if (err)
             res.send(err);
-          res.json(task);
+            res.json({ success:true, message: 'Task successfully Updated' });
         });
       };
       
@@ -44,7 +44,7 @@ let mongoose = require('mongoose'),
         Task.findOneAndUpdate({_id: req.params.taskId}, {Description: task, ClassName: class_, Deadline: deadline, Notes: notes}, {new: true}, function(err, task) {
           if (err)
             res.send(err);
-            res.json({ message: 'Task successfully Updated' });
+            res.json({ success: true, message: 'Task successfully Updated' });
         });
       };
       exports.complet_a_task = function(req, res) {
@@ -73,9 +73,9 @@ let mongoose = require('mongoose'),
 
       exports.get_task_by_class = function(req,res){
         let _userId = req.params.userId;
-        Task.find({userId:_userId, ClassName: req.params.className},{'_id':1,'Description':1, 'Deadline':1} , function(err, task) {
+        Task.find({userId:_userId, ClassName: req.params.className},{'_id':1,'Description':1, 'Deadline':1},{sort:{'Deadline':1}} , function(err, task) {
           if (err)
             res.send(err);
           res.json(task);
-        });
+        }).sort([]);
       }

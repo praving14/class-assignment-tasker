@@ -15,7 +15,7 @@ let mongoose = require('mongoose'),
       
       exports.list_all_classNames= function(req, res) {
         let _userId = req.params.userId;
-        Class.find({userId:_userId},{'_id':0,'ClassName':1} , function(err, class_) {
+        Class.find({userId:_userId},{'_id':0,'ClassName':1},{sort:{'ClassName':1}} , function(err, class_) {
           if (err)
             res.send(err);
           res.json(class_);
@@ -31,7 +31,7 @@ let mongoose = require('mongoose'),
         new_class.save(function(err, class_) {
           if (err)
             res.send(err);
-          res.json(class_);
+          res.json({success:true, message:"Class successfully created."});
         });
       };
       
