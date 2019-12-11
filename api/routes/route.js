@@ -32,13 +32,16 @@ module.exports = function (app) {
   app.route('/api/:userId/getTaskByDeadline/:deadline')
     .get(taskTracker.get_task_by_deadline)
 
-  app.route('/api/:userId/getTaskByClass/:className')
+  app.route('/api/:userId/getTaskByDeadlinePassed/:deadline')
+    .get(taskTracker.get_task_by_deadline_passed)
+
+  app.route('/api/:userId/getTaskByClass/:classId')
     .get(taskTracker.get_task_by_class)
 
   app.route('/api/user/login')
     .post(userTracker.user_login);
 
-    app.route('/api/user/register')
+  app.route('/api/user/register')
     .post(userTracker.register);
 
 };

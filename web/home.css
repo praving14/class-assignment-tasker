@@ -1,4 +1,8 @@
-.list-group-item:hover{
+.list-group-item.myClass:hover{
+    background: #eee;
+    cursor: pointer;
+}
+.list-group-item.myTask:hover{
     background: #eee;
     cursor: pointer;
 }

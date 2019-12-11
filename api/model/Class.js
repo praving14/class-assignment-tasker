@@ -5,7 +5,6 @@ let Schema = mongoose.Schema;
 let ClassSchema = new Schema({
     ClassName:{
         type: String,
-        unique: true,
         required: 'Class name is required',
         maxlength:[20,'ClassName cannot be longer than 20 chars'],
     },

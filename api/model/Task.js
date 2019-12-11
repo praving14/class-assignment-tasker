@@ -8,6 +8,11 @@ let TaskSchema = new Schema({
         required: 'Task Description is required',
         maxlength:[20,'Task Description cannot be longer than 50 chars'],
     },
+    classId:{
+        type:Schema.Types.ObjectId,
+        ref: 'Class',
+        required: 'ClassId is required',
+    },
     ClassName:{
         type: String,
         required: 'Class name is required',
