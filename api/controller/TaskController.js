@@ -32,7 +32,7 @@ let mongoose = require('mongoose'),
         Task.findById(req.params.taskId, function(err, task) {
           if (err)
             res.send(err);
-          res.json(task);
+          res.json({success:true, Task:task});
         });
       };
        
@@ -75,7 +75,7 @@ let mongoose = require('mongoose'),
         Task.find({userId:_userId,Completed:false,Deadline: {"$lte":date_, "$gte":newDate} },{'_id':1,'Description':1, 'Deadline':1, 'ClassName':1},{sort:{'ClassName':1,'Deadline':1}} , function(err, task) {
           if (err)
             res.send(err)
-          res.json(task);
+          res.json({success:true, Task :task });
         }).sort([]);
       }
 
@@ -86,7 +86,7 @@ let mongoose = require('mongoose'),
         Task.find({userId:_userId,Completed:false, Deadline: {"$lt":newDate} },{'_id':1,'Description':1, 'Deadline':1, 'ClassName':1},{sort:{'ClassName':1,'Deadline':1}} , function(err, task) {
           if (err)
             res.send(err)
-          res.json(task);
+          res.json({success:true, Task :task });
         }).sort([]);
       }
 
@@ -98,6 +98,6 @@ let mongoose = require('mongoose'),
         Task.find({userId:_userId, classId: classid},{'_id':1,'Description':1, 'Deadline':1, 'Completed':1},{sort:{'Deadline':1}} , function(err, task) {
           if (err)
             res.send(err);
-          res.json(task);
+          res.json({success:true, Task :task });
         }).sort([]);
       }

@@ -34,7 +34,7 @@ $(document).ready(function(){
                         $("#error-message").addClass("alert alert-success");
                         sessionStorage.setItem("user", result.User.username);
                         sessionStorage.setItem("userId", result.User._id);
-                        //sessionStorage.setItem("token", result.token);
+                        sessionStorage.setItem("token", result.token);
                         window.location.replace("/home");
                     }else{
                         $("#error-message").text(result.message);

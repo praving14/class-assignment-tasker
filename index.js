@@ -7,7 +7,7 @@ let Task = require("./api/model/Task");
 let User = require("./api/model/User");
 bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost:27017/classAssignemntTracker',{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true, useFindAndModify:false });
+const db = require('./database.js');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
