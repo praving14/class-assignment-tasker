@@ -48,6 +48,7 @@ $(document).ready(function () {
                     result.Task.forEach(function (item, index) {
                         let d = new Date(item.Deadline);
                         let today = new Date();
+                        //today.setDate(today.getDate -1);
                         let warn = (d < today);
                         let completed = item.Completed;
                         // let options = { dateStyle: 'medium' };

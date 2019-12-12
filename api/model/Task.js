@@ -6,7 +6,7 @@ let TaskSchema = new Schema({
     Description:{
         type: String,
         required: 'Task Description is required',
-        maxlength:[20,'Task Description cannot be longer than 50 chars'],
+        maxlength:[100,'Task Description cannot be longer than 100 chars'],
     },
     classId:{
         type:Schema.Types.ObjectId,
@@ -24,7 +24,7 @@ let TaskSchema = new Schema({
     },
     Notes:{
         type:String,
-        maxlength:[200,'Task Description cannot be longer than 200 chars']
+        maxlength:[500,'Task Description cannot be longer than 500 chars']
     },
     Completed:{
         type:Boolean,

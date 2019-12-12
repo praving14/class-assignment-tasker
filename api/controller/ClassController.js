@@ -6,7 +6,7 @@ let mongoose = require('mongoose'),
 
 exports.list_all_class = function (req, res) {
   let _userId = req.params.userId;
-  Class.find({ userId: _userId }, { '_id': 1, 'ClassName': 1 }, { sort: { 'ClassName': 1 } }, function (err, class_) {
+  Class.find({ userId: _userId }, { '_id': 1, 'ClassName': 1, 'Professor':1 }, { sort: { 'ClassName': 1 } }, function (err, class_) {
     if (err)
       res.send(err);
     res.json({success:true, Class: class_});

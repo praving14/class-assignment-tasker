@@ -40,7 +40,12 @@ $(document).ready(function () {
                     result.Class.forEach(function (item, index) {
                         // console.log(item.ClassName);
                         let listItem = $('<li class="list-group-item myClass text-center"> </li>');
-                        listItem.text("Class: " + item.ClassName);
+                        if(item.Professor === ""){
+                            listItem.text("Class: " + item.ClassName);
+                        }else{
+                            listItem.text("Class: " + item.ClassName + " with " + item.Professor);
+                        }
+                        // listItem.text("Class: " + item.ClassName);
                         listItem.attr('value', item.ClassName);
                         listItem.attr('_id', item._id);
                         $("#listOfClasses").append(listItem);
